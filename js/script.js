@@ -1,4 +1,4 @@
-// ============ MEMA AUTO VALUERS — site script ============
+// ============ MEMA AUTO ASSESSORS — site script ============
 document.addEventListener('DOMContentLoaded', function () {
 
   // Mobile nav toggle
@@ -83,11 +83,11 @@ document.addEventListener('DOMContentLoaded', function () {
       var message = form.querySelector('#message').value.trim();
 
       var body = 'Name: ' + name + '%0D%0AEmail: ' + email + '%0D%0APhone: ' + phone + '%0D%0A%0D%0A' + encodeURIComponent(message);
-      var mailto = 'mailto:sales@memaautovaluers.co.ke?subject=' + encodeURIComponent(subject) + '&body=' + body;
+      var mailto = 'mailto:sales@memaautoassessors.co.ke?subject=' + encodeURIComponent(subject) + '&body=' + body;
       window.location.href = mailto;
 
       var note = document.getElementById('form-status');
-      if (note) note.textContent = 'Opening your email app to send this enquiry to sales@memaautovaluers.co.ke ...';
+      if (note) note.textContent = 'Opening your email app to send this enquiry to sales@memaautoassessors.co.ke ...';
     });
   }
 

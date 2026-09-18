@@ -1,6 +1,6 @@
-# Mema Auto Valuers — Website
+# Mema Auto Assessors — Website
 
-A static, multi-page website for **Mema Auto Valuers** (Mema Auto Assessors Ltd), built with plain HTML/CSS/JS so it can be hosted for free on GitHub Pages.
+A static, multi-page website for **Mema Auto Assessors** (Mema Auto Assessors Ltd), built with plain HTML/CSS/JS so it can be hosted for free on GitHub Pages.
 
 ## Pages
 - `index.html` — Home
@@ -18,7 +18,7 @@ A static, multi-page website for **Mema Auto Valuers** (Mema Auto Assessors Ltd)
    ```bash
    git init
    git add .
-   git commit -m "Launch Mema Auto Valuers website"
+   git commit -m "Launch Mema Auto Assessors website"
    git branch -M main
    git remote add origin https://github.com/<your-username>/<repo-name>.git
    git push -u origin main
@@ -27,13 +27,13 @@ A static, multi-page website for **Mema Auto Valuers** (Mema Auto Assessors Ltd)
 4. Under **Build and deployment → Source**, choose **Deploy from a branch**, pick **main** and folder **/ (root)**, then **Save**.
 5. Your site will first be live at `https://<your-username>.github.io/<repo-name>/`.
 
-## Connecting your custom domain (memaautovaluers.co.ke)
+## Connecting your custom domain (memaautoassessors.co.ke)
 
-A `CNAME` file containing `memaautovaluers.co.ke` is already included in this project — GitHub Pages uses it automatically once DNS is set up.
+A `CNAME` file containing `memaautoassessors.co.ke` is already included in this project — GitHub Pages uses it automatically once DNS is set up.
 
 At your domain registrar (wherever `.co.ke` is registered), add these DNS records:
 
-**For the root domain `memaautovaluers.co.ke`** — add 4 `A` records pointing to GitHub Pages' IPs:
+**For the root domain `memaautoassessors.co.ke`** — add 4 `A` records pointing to GitHub Pages' IPs:
 ```
 185.199.108.153
 185.199.109.153
@@ -41,18 +41,18 @@ At your domain registrar (wherever `.co.ke` is registered), add these DNS record
 185.199.111.153
 ```
 
-**For `www.memaautovaluers.co.ke`** (optional but recommended) — add a `CNAME` record:
+**For `www.memaautoassessors.co.ke`** (optional but recommended) — add a `CNAME` record:
 ```
 www   CNAME   <your-username>.github.io.
 ```
 
-Then in **Settings → Pages → Custom domain**, enter `memaautovaluers.co.ke`, save, and once DNS propagates (can take a few hours), tick **Enforce HTTPS**.
+Then in **Settings → Pages → Custom domain**, enter `memaautoassessors.co.ke`, save, and once DNS propagates (can take a few hours), tick **Enforce HTTPS**.
 
-## Setting up your emails (sales@memaautovaluers.co.ke, etc.)
+## Setting up your emails (sales@memaautoassessors.co.ke, etc.)
 
-GitHub Pages only hosts the website — it does not provide email. To get `sales@memaautovaluers.co.ke`, `info@memaautovaluers.co.ke`, etc. working, you need an email hosting service pointed at the same domain, for example:
+GitHub Pages only hosts the website — it does not provide email. To get `sales@memaautoassessors.co.ke`, `info@memaautoassessors.co.ke`, etc. working, you need an email hosting service pointed at the same domain, for example:
 - **Google Workspace** or **Zoho Mail** (paid, full inbox + calendar)
-- **Cloudflare Email Routing** (free — forwards `you@memaautovaluers.co.ke` to an existing Gmail inbox)
+- **Cloudflare Email Routing** (free — forwards `you@memaautoassessors.co.ke` to an existing Gmail inbox)
 
 Whichever you choose, they will give you MX (and sometimes TXT/SPF) records to add at your domain registrar, alongside the A/CNAME records above.
 
@@ -61,4 +61,4 @@ Whichever you choose, they will give you MX (and sometimes TXT/SPF) records to a
 - All text content lives directly in the HTML files — open any page in a text editor and edit the wording between the tags.
 - Shared styling is in `css/style.css`; shared behaviour (mobile menu, animations, the contact form) is in `js/script.js`.
 - The logo and favicon are in `images/logo.png` and `images/favicon.png` — replace them with a higher-resolution version any time for sharper display.
-- The contact form currently opens the visitor's email app addressed to `sales@memaautovaluers.co.ke` (no backend required). If you'd like real form submissions with a database/notifications, connect a service like Formspree, Web3Forms, or a small serverless function.
+- The contact form currently opens the visitor's email app addressed to `sales@memaautoassessors.co.ke` (no backend required). If you'd like real form submissions with a database/notifications, connect a service like Formspree, Web3Forms, or a small serverless function.
