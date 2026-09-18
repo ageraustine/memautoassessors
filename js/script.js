@@ -16,24 +16,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Sticky header shadow + scroll progress bar
   var header = document.querySelector('.site-header');
-  var toTop = document.querySelector('.to-top');
   var progressBar = document.getElementById('scroll-progress');
   window.addEventListener('scroll', function () {
     var y = window.scrollY || window.pageYOffset;
     if (header) header.style.boxShadow = y > 10 ? '0 6px 24px rgba(10,47,92,.14)' : '0 2px 18px rgba(10,47,92,.08)';
-    if (toTop) toTop.classList.toggle('show', y > 420);
     if (progressBar) {
       var docHeight = document.documentElement.scrollHeight - window.innerHeight;
       var pct = docHeight > 0 ? (y / docHeight) * 100 : 0;
       progressBar.style.width = pct + '%';
     }
   }, { passive: true });
-
-  if (toTop) {
-    toTop.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
 
   // Reveal-on-scroll animation
   var revealEls = document.querySelectorAll('.reveal');

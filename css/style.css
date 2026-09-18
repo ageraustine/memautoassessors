@@ -711,23 +711,9 @@ footer ul li a:hover{ color: var(--sky); padding-left:3px; }
 .ira-strip p{ margin:0; font-size:.88rem; color: var(--navy); font-weight:500; }
 .ira-strip strong{ color: var(--blue); }
 
-/* ---------- Back to top ---------- */
-.to-top{
-  position:fixed; right:26px; bottom:26px;
-  width:48px;height:48px;border-radius:50%;
-  background: var(--blue);
-  color:var(--white);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow: var(--shadow-sm);
-  opacity:0; visibility:hidden; transform: translateY(10px);
-  transition:.3s; z-index:400; cursor:pointer; border:none;
-}
-.to-top.show{ opacity:1; visibility:visible; transform:none; }
-.to-top:hover{ background: var(--navy); }
-
 /* ---------- WhatsApp floating button ---------- */
 .whatsapp-fab{
-  position:fixed; left:26px; bottom:26px;
+  position:fixed; right:26px; bottom:26px;
   width:56px; height:56px; border-radius:50%;
   background: #25D366;
   color:#ffffff;
@@ -784,8 +770,7 @@ footer ul li a:hover{ color: var(--sky); padding-left:3px; }
   .whatsapp-fab::before{ animation:none; }
 }
 @media (max-width: 760px){
-  .whatsapp-fab{ width:50px; height:50px; font-size:1.4rem; left:18px; bottom:18px; }
-  .to-top{ right:18px; bottom:18px; }
+  .whatsapp-fab{ width:50px; height:50px; font-size:1.4rem; right:18px; bottom:18px; }
   .whatsapp-tooltip{ display:none; }
 }
 
