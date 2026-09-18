@@ -29,7 +29,10 @@ A static, multi-page website for **Mema Auto Assessors** (Mema Auto Assessors Lt
 
 ## Connecting your custom domain (memaautoassessors.co.ke)
 
-A `CNAME` file containing `memaautoassessors.co.ke` is already included in this project — GitHub Pages uses it automatically once DNS is set up.
+This project doesn't ship a `CNAME` file, so add one yourself when you're ready to go live on your own domain: create a file named exactly `CNAME` (no extension) in the root of the repo, containing just:
+```
+memaautoassessors.co.ke
+```
 
 At your domain registrar (wherever `.co.ke` is registered), add these DNS records:
 
@@ -62,3 +65,4 @@ Whichever you choose, they will give you MX (and sometimes TXT/SPF) records to a
 - Shared styling is in `css/style.css`; shared behaviour (mobile menu, animations, the contact form) is in `js/script.js`.
 - The logo and favicon are in `images/logo.png` and `images/favicon.png` — replace them with a higher-resolution version any time for sharper display.
 - The contact form currently opens the visitor's email app addressed to `sales@memaautoassessors.co.ke` (no backend required). If you'd like real form submissions with a database/notifications, connect a service like Formspree, Web3Forms, or a small serverless function.
+- The floating WhatsApp button (bottom-left on every page) opens a chat to `+254 789 662 679` with a pre-filled greeting. To change the number or message, search each HTML file for `whatsapp-fab` and edit the `wa.me/...` link, or ask to have it updated site-wide.

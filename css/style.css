@@ -83,33 +83,14 @@ section{ padding: 88px 0; }
 }
 .btn-navy:hover{ background: var(--blue); transform: translateY(-3px); }
 
-/* ---------- Top info bar ---------- */
-.topbar{
-  background: var(--navy);
-  color: rgba(255,255,255,.85);
-  font-size: .82rem;
+/* ---------- Scroll progress bar ---------- */
+.scroll-progress{
+  position:fixed; top:0; left:0;
+  height:3px; width:0%;
+  background: linear-gradient(90deg, var(--blue-light), var(--gold));
+  z-index: 700;
+  transition: width .1s linear;
 }
-.topbar .container{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding: 8px 0;
-  flex-wrap:wrap;
-  gap:8px;
-}
-.topbar-links{ display:flex; gap:22px; flex-wrap:wrap; }
-.topbar-links a{ display:flex; align-items:center; gap:7px; transition:.2s; }
-.topbar-links a:hover{ color: var(--sky); }
-.topbar-social{ display:flex; gap:14px; }
-.topbar-social a{
-  width:26px; height:26px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.3);
-  display:flex; align-items:center; justify-content:center;
-  font-size:.78rem;
-  transition:.2s;
-}
-.topbar-social a:hover{ background: var(--blue-light); border-color: var(--blue-light); }
 
 /* ---------- Header / Nav ---------- */
 header.site-header{
@@ -152,6 +133,7 @@ nav.main-nav ul{
   gap: 6px;
 }
 nav.main-nav a{
+  position:relative;
   display:block;
   padding: 10px 16px;
   font-weight:600;
@@ -160,10 +142,24 @@ nav.main-nav a{
   border-radius: 100px;
   transition: all .2s ease;
 }
+nav.main-nav a::after{
+  content:"";
+  position:absolute;
+  left:16px; right:16px; bottom:5px;
+  height:2px;
+  border-radius:2px;
+  background: var(--blue-light);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .28s ease;
+}
 nav.main-nav a:hover,
 nav.main-nav a.active{
-  background: var(--bg);
   color: var(--blue);
+}
+nav.main-nav a:hover::after,
+nav.main-nav a.active::after{
+  transform: scaleX(1);
 }
 .nav-cta{ display:flex; align-items:center; gap:14px; }
 .nav-cta .btn{ padding: 11px 22px; font-size:.87rem; }
@@ -203,6 +199,28 @@ nav.main-nav a.active{
   pointer-events:none;
 }
 .hero .container{ position:relative; z-index:2; }
+
+/* Staggered entrance animation for hero content */
+@keyframes heroRise{
+  from{ opacity:0; transform: translateY(22px); }
+  to{ opacity:1; transform: none; }
+}
+.hero .eyebrow,
+.hero h1,
+.hero p.lead,
+.hero .hero-actions,
+.hero .hero-stats{
+  animation: heroRise .8s cubic-bezier(.2,.7,.2,1) both;
+}
+.hero .eyebrow{ animation-delay: .05s; }
+.hero h1{ animation-delay: .16s; }
+.hero p.lead{ animation-delay: .28s; }
+.hero .hero-actions{ animation-delay: .4s; }
+.hero .hero-stats{ animation-delay: .52s; }
+@media (prefers-reduced-motion: reduce){
+  .hero .eyebrow, .hero h1, .hero p.lead, .hero .hero-actions, .hero .hero-stats{ animation:none; }
+}
+
 .eyebrow{
   display:inline-flex;
   align-items:center;
@@ -706,6 +724,70 @@ footer ul li a:hover{ color: var(--sky); padding-left:3px; }
 }
 .to-top.show{ opacity:1; visibility:visible; transform:none; }
 .to-top:hover{ background: var(--navy); }
+
+/* ---------- WhatsApp floating button ---------- */
+.whatsapp-fab{
+  position:fixed; left:26px; bottom:26px;
+  width:56px; height:56px; border-radius:50%;
+  background: #25D366;
+  color:#ffffff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.55rem;
+  box-shadow: 0 10px 28px -8px rgba(37,211,102,.6);
+  z-index: 400;
+  text-decoration:none;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.whatsapp-fab:hover{
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 16px 34px -8px rgba(37,211,102,.7);
+}
+.whatsapp-fab::before{
+  content:"";
+  position:absolute; inset:0;
+  border-radius:50%;
+  background: #25D366;
+  opacity:.55;
+  animation: waPulse 2.4s ease-out infinite;
+  z-index:-1;
+}
+@keyframes waPulse{
+  0%{ transform: scale(1); opacity:.55; }
+  100%{ transform: scale(1.85); opacity:0; }
+}
+.whatsapp-tooltip{
+  position:absolute;
+  right: 68px;
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  background: var(--navy);
+  color:#fff;
+  font-family: var(--ff-head);
+  font-size:.8rem;
+  font-weight:600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  white-space:nowrap;
+  opacity:0; visibility:hidden;
+  transition: all .2s ease;
+  pointer-events:none;
+}
+.whatsapp-tooltip::after{
+  content:"";
+  position:absolute; left:100%; top:50%; transform:translateY(-50%);
+  border:6px solid transparent; border-left-color: var(--navy);
+}
+.whatsapp-fab:hover .whatsapp-tooltip{
+  opacity:1; visibility:visible; transform: translateY(-50%) translateX(0);
+}
+@media (prefers-reduced-motion: reduce){
+  .whatsapp-fab::before{ animation:none; }
+}
+@media (max-width: 760px){
+  .whatsapp-fab{ width:50px; height:50px; font-size:1.4rem; left:18px; bottom:18px; }
+  .to-top{ right:18px; bottom:18px; }
+  .whatsapp-tooltip{ display:none; }
+}
 
 /* ---------- Reveal animation ----------
    Content stays fully visible by default (opacity:1) so nothing depends on
