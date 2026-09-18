@@ -689,6 +689,30 @@ nav.main-nav a.active::after{
   box-shadow: 0 10px 22px -10px rgba(10,47,92,.55);
 }
 .partner-card:hover .partner-icon{ transform: scale(1.1) rotate(-6deg); }
+.partner-logo{
+  width:84px; height:84px;
+  margin: 0 auto 16px;
+  border-radius: 18px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  padding: 10px;
+  box-shadow: 0 10px 22px -14px rgba(10,47,92,.25);
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease;
+}
+.partner-logo img{
+  max-width:100%; max-height:100%;
+  width:auto; height:auto;
+  object-fit: contain;
+  filter: grayscale(1) opacity(.75);
+  transition: filter .35s ease;
+}
+.partner-card:hover .partner-logo{
+  transform: scale(1.08);
+  box-shadow: 0 14px 28px -16px rgba(10,47,92,.4);
+  border-color: transparent;
+}
+.partner-card:hover .partner-logo img{ filter: grayscale(0) opacity(1); }
 .partner-card h3{
   font-size:.94rem;
   margin: 0 0 4px;
